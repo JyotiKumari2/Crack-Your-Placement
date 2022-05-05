@@ -18,16 +18,32 @@ public:
         
         // Tutorial-------> //
         
-        // Approach 01 : Using Sorting
+        // Approach 01 : Using Sorting -----> Starts
         // TC: O(nlogn)
         // SC: O(logn)
-        sort(nums.begin(),nums.end());
-        for(int i=1;i<nums.size();i++)
-        {
-            if(nums[i]==nums[i-1])
-                  return nums[i];
-        }
+        // sort(nums.begin(),nums.end());
+        // for(int i=1;i<nums.size();i++)
+        // {
+        //     if(nums[i]==nums[i-1])
+        //           return nums[i];
+        // }
+        // return -1;
+        
+        // Sort method ends
+        
+        
+        //Appoach 02: Using Set data structure
+        // Code starts
+            unordered_set<int>s;
+             for(auto i: nums)
+             {
+                 if(s.count(i))
+                        return i;
+                 s.insert(i);
+             }
         return -1;
+        
+        // code ends
         
     }
 };
