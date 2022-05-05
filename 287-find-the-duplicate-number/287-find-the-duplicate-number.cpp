@@ -34,16 +34,31 @@ public:
         
         //Appoach 02: Using Set data structure
         // Code starts
-            unordered_set<int>s;
-             for(auto i: nums)
-             {
-                 if(s.count(i))
-                        return i;
-                 s.insert(i);
-             }
-        return -1;
+            // unordered_set<int>s;
+        //      for(auto i: nums)
+        //      {
+        //          if(s.count(i))
+        //                 return i;
+        //          s.insert(i);
+        //      }
+        // return -1;
         
         // code ends
+        
+        
+        // Approach 03: Using Negative Marking
+        //Code starts
+        
+         for(int i=0;i<nums.size();i++)
+         {
+             if(nums[abs(nums[i])] <0)
+                        return abs(nums[i]);
+             else
+                 nums[abs(nums[i])]*=-1;
+         }
+        return -1;
+        
+        //Code ENds
         
     }
 };
