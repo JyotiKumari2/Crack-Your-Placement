@@ -48,15 +48,20 @@ public:
         
         // Approach 03: Using Negative Marking
         //Code starts
-        
+        int duplicate=-1;
          for(int i=0;i<nums.size();i++)
          {
              if(nums[abs(nums[i])] <0)
-                        return abs(nums[i]);
+                        duplicate=abs(nums[i]);
              else
                  nums[abs(nums[i])]*=-1;
          }
-        return -1;
+        
+        // restore 
+        for(auto num:nums)
+              num=abs(num);
+        
+        return duplicate;
         
         //Code ENds
         
