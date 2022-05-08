@@ -14,9 +14,17 @@ using namespace std;
 int sumElement(int arr[],int n)
 {
     //Your code here
+    
+    // Method01: Using Inbuilt Function
+    // int s=0;
+    // s=accumulate(arr,arr+n,s);
+    // return s;
+    
+    // Method 02: Using linear 
     int s=0;
-    s=accumulate(arr,arr+n,s);
-    return s;
+    for(int i=0;i<n;i++)
+       s+=arr[i];
+     return s;
 }
 
 
