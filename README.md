@@ -6,6 +6,6 @@
 
 
 # CP Ratings:
-📅 10-05-2022 (date started)
+📅 10-05-2022  (NewBie)
 <h4>CodeChef: 1517 (Max: 1632)<h4/>
  <h4>CodeForces: 374 (Max:794)</h4>
