@@ -12,11 +12,11 @@
  
  ## Platforms:
  
- <h5>📈 GeeksForGeeks</h5>
- <h5>📈 LeetCode</h5>
- <h5>📈 AtCoder</h5>
- <h5>📈 CodeForces</h5>
- <h5>📈 CodeChef</h5>
+ <h5>📈 GeeksForGeeks</h5>   (325 Problems------------->________)
+ <h5>📈 LeetCode</h5>        (179 Problems------------->________)
+ <h5>📈 AtCoder</h5>         (012 Problems------------->________)
+ <h5>📈 CodeForces</h5>      (067 Problems------------->________)
+ <h5>📈 CodeChef</h5>        (078 Problems------------->________)
  
  
  
