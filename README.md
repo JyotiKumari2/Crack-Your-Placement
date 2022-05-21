@@ -9,3 +9,14 @@
 📅 10-05-2022  (NewBie)
 <h4>CodeChef: 1517 (Max: 1632)<h4/>
  <h4>CodeForces: 374 (Max:794)</h4>
+ 
+ ## Platforms:
+ 
+ <h5>📈 GeeksForGeeks</h5>
+ <h5>📈 LeetCode</h5>
+ <h5>📈 AtCoder</h5>
+ <h5>📈 CodeForces</h5>
+ <h5>📈 CodeChef</h5>
+ 
+ 
+ 
