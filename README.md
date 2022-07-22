@@ -21,4 +21,4 @@
 <hr>
 
 
-#### 🟥 Now lets see whats nextttt......???? 👀⚔
+#### 🟥 Now lets see whats nextttt...???? 👀⚔
