@@ -1,7 +1,7 @@
  ## Data-Structures And Algorithms
  ## Competitive Programming
 
-#### Date :  16-07-2022  ( Day : 0)
+#### Date :  23-07-2022  ( Day : 1)
 - HackerRank : Problem Solving (4 ⭐), Language Proficiency C++ (5⭐)
 - GeeksForGeeks : Total Problem Solved (340 [ School:6 | Basic: 102 | Easy: 162 | Medium: 59 | Hard: 11 ]), Institute Rank: (63/2066)
 - LeetCode : Total Problem Solved (200 [89E | 93M | 18H] ) , Rating : (1250) , Rank : (234,675)
