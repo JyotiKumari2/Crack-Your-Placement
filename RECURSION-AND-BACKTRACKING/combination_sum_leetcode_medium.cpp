@@ -21,19 +21,20 @@ void combinationSum(vector<vector<int>>&ans, vector<int>&ds, int *arr, int n, in
 }
 int main()
 {
-    cout<<"Enter number of array elements:\n";
+     vector<vector<int>>ans;
+    vector<int>ds;
+    // cout<<"Enter number of array elements:\n";
     int n;
     cin>>n;
    
-    cout<<"Enter the target sum:\n";
+    // cout<<"Enter the target sum:\n";
     int sum ;
     cin>>sum;
-     cout<<"Enter array elements:\n";
+    //  cout<<"Enter array elements:\n";
     int *arr = new int[n];
     for(int i=0;i<n;i++)
         cin>>arr[i];
-    vector<vector<int>>ans;
-    vector<int>ds;
+   
 
     combinationSum(ans,ds,arr,n,0,sum);
     cout<<ans.size();
