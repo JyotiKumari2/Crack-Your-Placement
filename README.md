@@ -9,7 +9,7 @@
 - CodeChef : Total Problem Solved (78) , Rating : ( 1445 , 2⭐)
 - CSES-Problem-Set : Problem Solved (4)
 - InterviewBit : Problem Solved (18)
-- TUF-SDE-SHEET : ARRAYS Completed ✔️  (Rest 30 topics left)
+- TUF-SDE-SHEET : ARRAYS Completed ✔️   
 - LOVE450 : -
 
 
