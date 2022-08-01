@@ -1,24 +1,23 @@
-// Same as fibo 
-
 #include<bits/stdc++.h>
-using namespace std ;
-int countWays(int n, vector<int>&dp)
+using namespace std;
+void solve(int ind,string s,vector<int>&p )
 {
-    if(n<=1)
-       return n;
-    
+     
+       if(ind==s.length())
+          {
+            return;
+          }
 
-    if(dp[n]!=-1)
-       return dp[n];
-    return dp[n]=countWays(n-1,dp)+countWays(n-2,dp);
+         
 }
-int  main()
+int main()
 {
-    int n; //no of stairs
-
-    cin>>n;
-    vector<int>dp(n+1,-1);  // Memoization -----> top--->down approach
-
-    int ans = countWays(n,dp);
-    cout<<"There are total "<<ans<<" ways to reach "<<n<<"th stair.";
+    string s;
+    cin>>s;
+    vector<int>p;
+    int n=s.length();
+    
+    solve(0,s,p);
+     
+    return 0;
 }
