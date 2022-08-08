@@ -2,6 +2,8 @@ class Solution {
 public:
 int uniquePaths(int m, int n) {
 
+    
+    //tabulation
     if(m==1 and n==1)
             return 1;
     

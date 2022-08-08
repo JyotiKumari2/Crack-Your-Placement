@@ -8,6 +8,7 @@ int main()
     {
         int n,m,k;
         cin>>n>>m>>k;
+ 
         string a ;
         cin>>a;
         string b ;
@@ -46,4 +47,4 @@ int main()
     }
     return 0;
 
-}
+ }
