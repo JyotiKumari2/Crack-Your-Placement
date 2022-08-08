@@ -8,30 +8,43 @@ int main()
     {
         int n,m,k;
         cin>>n>>m>>k;
-        string a(n);
+ 
+        string a ;
         cin>>a;
-        string b(m);
+        string b ;
         cin>>b;
-        string c="";
-        sort(a.begin(),a.end());
-        sort(b.begin(),b.end());
-        int i=0;
-        int j=0;
-        int t=k;
-        while(a.size() && b.size())
+        string s="";
+        sort(a.begin(),a.end(),greater<char>());
+        sort(b.begin(),b.end(),greater<char>());
+        int acount=0;
+        int bcount=0;
+        bool flag;
+        while(!a.empty() && !b.empty())
         {
-           if(a[i]<=b[j] && t!=0) 
-           {
-               c+=a[i++];
-               t--;
-               if(t==0)
-               { 
-                
 
-               }
-               
-           }
+            flag = a.back()<b.back();
+            if(flag && acount==k) flag = false;
+            if(!flag && bcount==k ) flag = true;
+            if(flag) {
+                     s.push_back(a.back());
+                     acount++;
+                     bcount=0;
+                     a.pop_back();
+
+            }
+            else{
+                s.push_back(b.back());
+                     bcount++;
+                     acount=0;
+                     b.pop_back();
+            }
+
+
         }
+         
+        cout<<s<<"\n";       
+        
     }
     return 0;
-}
+
+ }
