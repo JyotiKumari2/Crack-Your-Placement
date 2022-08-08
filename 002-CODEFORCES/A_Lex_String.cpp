@@ -13,35 +13,36 @@ int main()
         string b ;
         cin>>b;
         string s="";
-        sort(a.begin(),a.end());
-        sort(b.begin(),b.end());
-        int i=0;
-        int j=0;
-        // int m=0;
-        int temp=k;
-        while(  && !b.empty())
+        sort(a.begin(),a.end(),greater<char>());
+        sort(b.begin(),b.end(),greater<char>());
+        int acount=0;
+        int bcount=0;
+        bool flag;
+        while(!a.empty() && !b.empty())
         {
-               if(a[i]<=b[j] && k!=0)
-               {
-                s+=a[i];
-                i++;
-                if(a[i]==a[i+1])
-                k--;
-                
-               }
-               
-               else if(k!=0)
-               {
-                s+=b[j];
-                j++;
-                if(b[j]==b[j+1])
-                   k--;
 
-                
-               }
+            flag = a.back()<b.back();
+            if(flag && acount==k) flag = false;
+            if(!flag && bcount==k ) flag = true;
+            if(flag) {
+                     s.push_back(a.back());
+                     acount++;
+                     bcount=0;
+                     a.pop_back();
 
-               
+            }
+            else{
+                s.push_back(b.back());
+                     bcount++;
+                     acount=0;
+                     b.pop_back();
+            }
+
+
         }
+         
+        cout<<s<<"\n";       
+        
     }
     return 0;
 
