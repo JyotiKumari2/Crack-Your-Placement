@@ -1,16 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long int
 int main()
 {
-    int n,m;
+    ll n,m;
     cin>>n>>m;
-    vector<int>a(n);
+    vector<ll>a(n);
     for(int i=0;i<n;i++)
        cin>>a[i];
-    vector<int>dp1(n+1,0);
-    vector<int>dp2(n+1,0);
+    vector<ll>dp1(n+1,0);
+    vector<ll>dp2(n+1,0);
     // fill dp1
-    for(int i=0;i<n-1;i++)
+    for(ll i=0;i<n-1;i++)
     {
         if(a[i]>a[i+1])
            dp1[i+2]=a[i]-a[i+1];
@@ -21,7 +22,7 @@ int main()
     //    cout<<dp1[i]<<" ";
 
     // fill dp2;
-    for(int i=n-1;i>=1;i--)
+    for(ll i=n-1;i>=1;i--)
     {
         if(a[i]>a[i-1])
            dp2[i]=a[i]-a[i-1];
@@ -32,24 +33,34 @@ int main()
     //    cout<<dp2[i]<<" ";
 
 
+    vector<ll>prefixSum1(n+1,0);
+    prefixSum1[0]=dp1[0];
+    for(ll i=1;i<n+1;i++)
+       prefixSum1[i]=dp1[i]+prefixSum1[i-1];
+
+
+    vector<ll>prefixSum2(n+1,0);
+    prefixSum2[n]=dp2[n];
+    for(ll i=n-1;i>=0;i--)
+    {
+        prefixSum2[i]=dp2[i]+prefixSum2[i+1];
+    }
+
+
+
+
+    
+
+
+
     while(m--)
     {
         int x,y;
         cin>>x>>y;
-
-        int s=0;
         if(x<y)
-        {
-        for(int i=x+1;i<=y;i++)
-           s+=dp1[i];
-        cout<<s<<"\n";
-        }
-        else{
-            for(int i=x-1;i>=y;i--)
-               s+=dp2[i];
-
-            cout<<s<<"\n";
-        }
+          cout<<abs(prefixSum1[y]-prefixSum1[x])<<"\n";
+          else
+          cout<<abs(prefixSum2[y]-prefixSum2[x])<<"\n";
         
     }
 
