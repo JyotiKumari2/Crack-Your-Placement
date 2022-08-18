@@ -1,16 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long int
 int main()
 {
 
-    vector<int>v(3);
-    for(int i=0;i<3;i++)
-       cin>>v[i];
-    sort(v.begin(),v.end());
-    int diff1= v[1]-v[0];
-    int diff2= v[2]-v[1];
-    cout<<diff1+diff2<<"\n";
+     
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll a,b,c,d;
+        cin>>a>>b>>c>>d;
+        int ans=0;
+        if(a==0 || c==0)
+           ans=1;
+           else
+           {
 
+           }
+    }
     return 0;
 
 }
