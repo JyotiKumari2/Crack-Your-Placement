@@ -6,7 +6,7 @@ vector<ll> vec;
 ll n;
  
 int main() {
-    
+ 
  
 	ll t;
 	cin >> t;
