@@ -25,10 +25,10 @@ void preOrderTraversal(Node *root)
 int main()
 {
 
-    Node *root = new Node(10);
-    root->left = new Node(20);
-    root->right = new Node(40);
-    root->right->left = new Node(30);
+    Node *root = new Node(50);
+    root->left = new Node(40);
+    root->left->left = new Node(30);
+    root->left->left->left = new Node(25);
     cout<<"PreOrderTraversal:\n";
     preOrderTraversal(root);
     return 0;
