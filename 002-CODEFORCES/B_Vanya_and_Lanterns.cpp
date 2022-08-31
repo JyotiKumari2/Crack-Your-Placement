@@ -165,101 +165,41 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-//    int n;
-//    cin>>n; // No of words of length 3
-//    vector<string>p1,p2,p3;
-//    vector<string>::iterator it1;
-//    vector<string>::iterator it2;
-//    vector<string>::iterator it3;
-//    unordered_map<string,int>m;
-//    for(int i=0;i<3;i++)
-//    {
-//          for(int j=0;j<n;j++)
-//          {
-//             string s;
-//             cin>>s;
-//             m[s]++;
-//             if(i==0)
-//             p1.push_back(s);
-//             else if(i==1)
-//               p2.push_back(s);
-//               else if(i==2)
-//               p3.push_back(s);
-//          }
-//    }
-
-//    int c1=0,c2=0,c3=0;
-//    for(auto i:m)
-//    {
-//        if(i.second==1)
-//        {
-//            it1=find(p1.begin(),p1.end(),i.first);
-//            it2=find(p2.begin(),p2.end(),i.first);
-//            it3=find(p3.begin(),p3.end(),i.first);
-//            if(it1!=p1.end())
-//              c1+=3;
-//             if(it2!=p2.end())
-//                 c2+=3;
-//             if(it3!=p3.end())
-//                  c3+=3;
-              
-
-//        }
-//        else if(i.second == 2)
-//        {
-//            it1=find(p1.begin(),p1.end(),i.first);
-//            it2=find(p2.begin(),p2.end(),i.first);
-//            it3=find(p3.begin(),p3.end(),i.first);
-//             if(it1!=p1.end())
-//              c1+=1;
-//             if(it2!=p2.end())
-//                 c2+=1;
-//             if(it3!=p3.end())
-//                  c3+=1;
-//        }
-
-//    }
-
-//    cout<<c1<<" "<<c2<<" "<<c3;
+   ll n,l;
+   vector<int>a(n);
+   for(int i=0;i<n;i++)
+      cin>>a[i];
+    sort(a.begin(),a.end());
+    int d = 0;
+    for(int i=1;i<n;i++)
+    {
+        d=max(d,a[i]-a[i-1]);
+    }
+    int first = a[0];
+    int last = l-a[n-1];
+    int ans = max(first,last);
+    d = max(d/2,ans);
+    cout<<fixed<<setprecision(9)<<(double)d<<"\n";
 
 
-// Solved Using Tutorial
-int n;
-	cin >> n;
-	map<string, int> mp;
-	string a[3][n];
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < n; j++) {
-			cin >> a[i][j];
-			mp[a[i][j]]++;
-		}
-	}
-	for (int i = 0; i < 3; i++) {
-		int tot = 0;
-		for (int j = 0; j < n; j++) {
-			if (mp[a[i][j]] == 1) {tot += 3;}
-			else if (mp[a[i][j]] == 2) {tot++;}
-		}
-		cout << tot << ' ';
-	}
-	 
-    
 
- }
 
+
+
+
+}
 
 int main()
 {
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
         solve();
-        cout<<"\n";
-    }
+    // }
     return 0;
 }
 
