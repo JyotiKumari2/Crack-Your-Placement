@@ -165,7 +165,58 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-     
+      
+      ll a,b;
+      cin>>a>>b;
+      ll gcd = __gcd(a,b);
+
+      vector<int>div;
+      for(ll i=1;i*i<=gcd;i++)
+      {
+          if(gcd%i==0)
+        {
+            div.push_back(i);
+            if(i*i!=gcd)
+              div.push_back(gcd/i);
+        }
+      }
+    //   for(auto i:div)
+    //    cout<<i<<" ";
+      ll n;
+      cin>>n;
+      while(n--)
+      {
+        ll low,high;
+        cin>>low>>high;
+        // if(low>gcd)
+        //   {
+        //     cout<<-1<<"\n";
+            
+        //   }
+        //   else if(low==gcd)
+        //   {
+        //     cout<<gcd<<"\n";
+        //   }
+        //   else
+        //   {
+        //     for(ll i=high;i>low;i--)
+        //     {
+        //         if(gcd%i==0)
+        //         {
+        //           cout<<i<<"\n";
+        //           continue;
+        //         }
+        //     }
+        //   }
+
+        int ans=-1;
+        for(auto d:div)
+           if(d>=low && d<=high)
+               ans=max(ans,d);
+    
+        cout<<ans<<"\n";
+
+      }
 }
 
 int main()
@@ -173,12 +224,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
         solve();
-    }
+    // }
     return 0;
 }
 

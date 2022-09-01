@@ -165,6 +165,9 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
+     int k,p,q;
+     cin>>k>>p>>q;
+     cout<<k*(p-q)<<"\n";
      
 }
 

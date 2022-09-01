@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+  #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
@@ -165,7 +165,57 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
+    //  int n;
+    //  cin>>n;
+    //  vector<int>a(n);
+    //  for(int i=0;i<n;i++)
+    //     cin>>a[i];
+    // sort(a.begin(),a.end());
      
+    // int d1=1;
+    // int d2=0;
+    // for(int i=0;i<n;i++)
+    // {
+    //     d1=0;
+    //     d2=0;
+    //     for(int j=0,k=i+1;j<i,k<n-1;j++,k++)
+    //     {
+    //         if(a[j]!=a[j+1])
+    //           d1++;
+    //         if(a[k]!=a[k+1])
+    //           d2++;
+    //     }
+    //     if(d1==d2)
+    //     {
+    //         cout<<"YES\n";
+    //         return ;
+    //     }
+       
+    // }
+    // cout<<"NO\n";
+
+
+
+    int n;
+    cin>>n;
+    vector<int>v(n);
+     
+    set<int>distinctDigit;
+    for(int i=0;i<n;i++)
+      {
+        cin>>v[i];
+        distinctDigit.insert(v[i]);
+        if(distinctDigit.size()%2!=0)
+        {
+            if((n-distinctDigit.size() )== 0)
+            {
+                cout<<"NO\n";
+                return ;
+            }
+        }
+      }
+      cout<<"YES\n";
+    
 }
 
 int main()
