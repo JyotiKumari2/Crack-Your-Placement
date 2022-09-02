@@ -132,6 +132,17 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 
 //-------------------M_A_T_H_E_M_A_T_I_C_S-------------------------------------------------------------
 //Starts----------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+ // GCD-----------------
+ 
+ int gcd(int a,int b)
+ {
+    if(b==0)
+     return a;
+    return gcd(b,b%a);
+ }
+
 //Ends------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
