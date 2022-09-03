@@ -132,6 +132,22 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 
 //-------------------M_A_T_H_E_M_A_T_I_C_S-------------------------------------------------------------
 //Starts----------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+ // GCD-----------------
+ 
+ int gcd(int a,int b)
+ {
+    if(b==0)
+     return a;
+    return gcd(b,a%b);
+ }
+
+ // LCM ---------
+ int lcm (int a, int b) {
+    return a / gcd(a, b) * b;
+}
+
 //Ends------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -165,48 +181,16 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-   ll n;
-   cin>>n;
-   string s;
-   cin>>s;
-   vector<pair<ll,ll>>v(n);
-   if(s[0]=='L')
-    v[0]={0,n-1};
-    else if(s[0]=='R')
-      v[0]={n-1,n-1};
-    if(s[n-1]=='L')
-      v[n-1]={n-1,n-1};
-      else
-        v[n-1]={0,n-1};
-   for(ll i=1;i<n-1;i++)
-   {
-       if(s[i]=='L')
-         v[i]={i,max(i,n-(i+1))};
-         else 
-         {
-            v[i]={n-(i+1), max(i,(n-(i+1)))};
-
-
-         }
-
-   }
-   sort(v.begin(),v.end());
-   ll sum=0;
-   for(ll i=0;i<n;i++)
-   {
-    sum+=v[i].first;
-   }
-   for(ll i=0;i<n;i++)
-   {
-        
-       ll diff = v[i].second - v[i].first;
-       sum+=diff;
-
-       cout<<sum<<" ";
-   }
-
-
-   
+     ll n;
+     cin>>n;
+     vector<ll>a(n);
+     vector<ll>b(n);
+     for(int i=0;i<n;i++)
+     {
+        cin>>a[i];
+        cin>>b[i];
+     }
+     
 }
 
 int main()
@@ -219,7 +203,6 @@ int main()
     while(t--)
     {
         solve();
-        cout<<"\n";
     }
     return 0;
 }

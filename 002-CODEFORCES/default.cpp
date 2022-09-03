@@ -140,8 +140,13 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
  {
     if(b==0)
      return a;
-    return gcd(b,b%a);
+    return gcd(b,a%b);
  }
+
+ // LCM ---------
+ int lcm (int a, int b) {
+    return a / gcd(a, b) * b;
+}
 
 //Ends------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
