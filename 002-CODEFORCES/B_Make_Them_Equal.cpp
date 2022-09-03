@@ -132,6 +132,17 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 
 //-------------------M_A_T_H_E_M_A_T_I_C_S-------------------------------------------------------------
 //Starts----------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+ // GCD-----------------
+ 
+ int gcd(int a,int b)
+ {
+    if(b==0)
+     return a;
+    return gcd(b,b%a);
+ }
+
 //Ends------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
@@ -165,48 +176,56 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-   ll n;
-   cin>>n;
-   string s;
-   cin>>s;
-   vector<pair<ll,ll>>v(n);
-   if(s[0]=='L')
-    v[0]={0,n-1};
-    else if(s[0]=='R')
-      v[0]={n-1,n-1};
-    if(s[n-1]=='L')
-      v[n-1]={n-1,n-1};
-      else
-        v[n-1]={0,n-1};
-   for(ll i=1;i<n-1;i++)
-   {
-       if(s[i]=='L')
-         v[i]={i,max(i,n-(i+1))};
-         else 
-         {
-            v[i]={n-(i+1), max(i,(n-(i+1)))};
+    int n;
+    cin>>n;
+    vector<int>a(n),b;
+     set<int>s;
+    for(int i=0;i<n;i++)
+      {
+      cin>>a[i];
+      s.insert(a[i]);
+      }
+      for(auto x:s)
+         b.push_back(x);
+      if(s.size()>3)
+      {
+        cout<<"-1"<<"\n";
+        return ;
+      }
+      if(s.size()==3)
+      {
+         if(b[1]-b[0] == b[2]-b[1])
+            {
+                cout<<b[2]-b[1]<<"\n";
+                return;
+            }
+            else{
+                cout<<"-1"<<"\n";
+                return;
 
-
-         }
-
-   }
-   sort(v.begin(),v.end());
-   ll sum=0;
-   for(ll i=0;i<n;i++)
-   {
-    sum+=v[i].first;
-   }
-   for(ll i=0;i<n;i++)
-   {
-        
-       ll diff = v[i].second - v[i].first;
-       sum+=diff;
-
-       cout<<sum<<" ";
-   }
-
+            }
+      }
+      if(s.size()==2)
+      {
+        if((b[1]-b[0])%2==0)
+            {
+                cout<<(b[1]-b[0])/2<<"\n";
+                return;
+            }
+            else
+            {
+                cout<<b[1]-b[0]<<"\n";
+                return;
+            }
+      }
+      if(s.size()==1)
+       {
+        cout<<0<<"\n";
+        return;
+       }
 
    
+
 }
 
 int main()
@@ -214,13 +233,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
         solve();
-        cout<<"\n";
-    }
+    // }
     return 0;
 }
 
