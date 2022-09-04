@@ -181,9 +181,26 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-     int a,b;
-     cin>>a>>b;
-     
+     vector<vector<char>>v(2,vector<char>(2));
+     unordered_map<char,int>m;
+     for(int i=0;i<2;i++)
+     {
+      for(int j=0;j<2;j++)
+      {
+         cin>>v[i][j];
+         m[v[i][j]]++;
+
+      }
+     }
+     int size = m.size();
+     if(size==1)
+        cout<<0;
+        else if(size==2)
+             cout<<1;
+             else if(size==3)
+                cout<<2;
+                  else 
+                    cout<<3;
 }
 
 int main()
@@ -196,6 +213,7 @@ int main()
     while(t--)
     {
         solve();
+        cout<<"\n";
     }
     return 0;
 }
