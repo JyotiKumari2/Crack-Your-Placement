@@ -8,6 +8,7 @@ typedef pair<int,int> pi;
 #define PB push_back
 #define MP make_pair
 #define REP(i,a,b) for (int i = a; i < b; i++)
+#define mod 1000000007
 
 // RECURSION -- PRINT ALL SUBSEQUENCES
 void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
@@ -194,7 +195,7 @@ void storeSubstrings(const string &str, vector<string>&v)
     }
 }
 
-void countGS(const string &s, int &cse)
+void countGS(const string &s , int &res)
 {
      char c=s[0];
      int count =0;
@@ -213,7 +214,8 @@ void countGS(const string &s, int &cse)
                 count++;
             }
      }
-     cout<<"Case #"<<cse++<<": "<<count<<"\n";
+    //  cout<<"Case #"<<cse++<<": "<<count<<"\n";
+    res=(res%mod + count%mod)%mod;
 }
 
 
@@ -225,11 +227,12 @@ void solve(int &cse)
      cin>>s;
      vector<string>v;
      storeSubstrings(s,v);
+     int res=0;
      for(auto x:v)
      {
-        countGS(x,cse);
+        countGS(x,res);
      }
-     
+     cout<<"Case #"<<cse++<<": "<<res%mod<<"\n";
 
 }
 

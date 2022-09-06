@@ -181,7 +181,7 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-     
+          
 }
 
 int main()
