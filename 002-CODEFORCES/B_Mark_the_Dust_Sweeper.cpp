@@ -179,58 +179,21 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 
 
 //Code:
-void storeSubstrings(const string &str, vector<string>&v)
+void solve()
 {
- 
-     
-    for (int i = 0; i < str.length(); i++) {
-        string subStr;
-        
-        for (int j = i; j < str.length(); j++) {
-            subStr += str[j];
-            // cout << subStr << endl;
-            v.push_back(subStr);
-        }
+         int n; cin >> n;
+    vector<int> a(n);
+    for(int i = 0; i < n; ++i)
+        cin >> a[i];
+    ll ans = 0;
+    int ptr = 0;
+    while(ptr < n && a[ptr] == 0)
+        ptr++;
+    for(int i = ptr; i < n-1; ++i){
+        ans += a[i];
+        if(a[i] == 0) ans++;
     }
-}
-
-void countGS(const string &s, int &cse)
-{
-     char c=s[0];
-     int count =0;
-     for(int i=1;i<s.length();i++)
-     {
-        if(c=='F')
-        {
-            c=s[i];
-            continue;
-        }
-        else
-        if(c==s[i] || s[i]=='F')
-            continue;
-            else{
-                c=s[i];
-                count++;
-            }
-     }
-     cout<<"Case #"<<cse++<<": "<<count<<"\n";
-}
-
-
-void solve(int &cse)
-{
-     int n;
-     cin>>n;
-     string s;
-     cin>>s;
-     vector<string>v;
-     storeSubstrings(s,v);
-     for(auto x:v)
-     {
-        countGS(x,cse);
-     }
-     
-
+    cout << ans << "\n";
 }
 
 int main()
@@ -240,10 +203,9 @@ int main()
     cin.tie(0);
     int t;
     cin>>t;
-    int cse=1;
     while(t--)
     {
-        solve(cse);
+        solve();
     }
     return 0;
 }
