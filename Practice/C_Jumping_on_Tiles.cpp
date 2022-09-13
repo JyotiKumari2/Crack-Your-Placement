@@ -5,8 +5,10 @@ typedef vector<int> vi;
 typedef pair<int,int> pi;
 #define F first
 #define S second
-#define PB push_back
+#define pb push_back
 #define MP make_pair
+#define ff first
+#define ss second
 #define REP(i,a,b) for (int i = a; i < b; i++)
 
 // RECURSION -- PRINT ALL SUBSEQUENCES
@@ -196,24 +198,63 @@ int index(char c)
 }
 void solve()
 {
-   string s;
-   cin>>s;
-   int n=s.length();
-//    vector<int>indexDiff(n);
-   unordered_map<int,int>mp;
-   for(int i=1;i<=n;i++)
-   {
-    mp[i]=index(s[i-1]);
-   }
-    // sort(mp.begin(),mp.end(),greater<int>());
-    sort(mp.begin(),mp.end());
+//    string s;
+//    cin>>s;
+//    int n=s.length();
+// //    vector<int>indexDiff(n);
+//    unordered_map<int,int>mp;
+//    for(int i=1;i<=n;i++)
+//    {
+//     mp[i]=index(s[i-1]);
+//    }
+//     // sort(mp.begin(),mp.end(),greater<int>());
+//     sort(mp.begin(),mp.end());
 
 
-    // debug
-    for(auto i:mp)
-    {
-        cout<<"First: "<<i.first<<" Second: "<<i.second<<"\n";
+//     // debug
+//     for(auto i:mp)
+//     {
+//         cout<<"First: "<<i.first<<" Second: "<<i.second<<"\n";
+//     }
+
+
+ string s;
+        cin >> s;
+        ll n=s.length();
+        vector<pair<ll,ll>>v;
+        for(ll i=1;i<n-1;i++){
+            ll x=s[i]-'0';
+            v.pb({x,i+1});
+        }
+        sort(v.begin(),v.end());
+        vector<ll>ans;
+        ans.pb(1);
+        if(v.size()>=1){
+        if((s[0]-'0')<=(s[n-1]-'0')){
+            
+            for(ll i=0;i<v.size();i++){
+                if(v[i].ff>=(s[0]-'0') && v[i].ff<=(s[n-1]-'0')){
+                    ans.pb(v[i].ss);
+                }
+            }
+            
+        }
+        else {
+            
+            for(ll i=v.size()-1;i>=0;i--){
+                if(v[i].ff<=(s[0]-'0') && v[i].ff>=(s[n-1]-'0')){
+                    ans.pb(v[i].ss);
+                }
+            }
+            
+        }
     }
+        ans.pb(n);
+        cout << abs((s[0]-'0')-(s[n-1]-'0')) << " " << ans.size() << endl;
+        for(auto x:ans){
+            cout << x << " ";
+        }
+        cout <<"\n";
    
    
 
