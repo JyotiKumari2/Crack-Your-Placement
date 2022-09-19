@@ -181,47 +181,27 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 //Code:
 void solve()
 {
-   int n;
-   cin>>n;
-   vector<int>candyWt(n);
-    int c1=0;
-    int c2=0;
+    int n,q;
+    cin>>n>>q;
+    vector<pair<int,int>>v(n);
+    for(int i=0;i<n;i++)
+      cin>>v[i].first>>v[i].second;
+   
+    while(q--)
+    {
+        
+   ll area=0;
+    int hs,ws,hb,wb;
+    cin>>hs>>ws>>hb>>wb;
+    for(int i=0;i<n;i++)
+    {
+        if((v[i].first>hs && v[i].first<hb) &&(v[i].second>ws && v[i].second<wb ))
+        area+=(v[i].first *v[i].second);
+    }
+    cout<<area<<"\n";
 
-   for(int i=0;i<n;i++)
-   {
-       cin>>candyWt[i];
-       
-   }
-   for(int i=0;i<n;i++)
-   {
-        if(candyWt[i]==1)
-           c1++;
-           else
-            c2++;
-   }
-   if(c1==0 && c2==0)
-       cout<<"YES\n";
-       else if((c1==c2) && (c1!=1 && c2!=1))
-          cout<<"YES\n";
-       else if(c1==0)
-       {
-        if(c2%2==0)
-            cout<<"YES\n";
-            else
-               cout<<"NO\n";
-       }
-       else if(c2==0)
-       {
-        if(c1%2==0)
-           cout<<"YES\n";
-           else
-             cout<<"NO\n";
-       }
-       else {
-        cout<<"NO\n";
-       }
-    
- 
+    }
+
 }
 
 int main()
