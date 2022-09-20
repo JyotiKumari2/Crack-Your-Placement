@@ -8,8 +8,6 @@ typedef pair<int,int> pi;
 #define PB push_back
 #define MP make_pair
 #define REP(i,a,b) for (int i = a; i < b; i++)
-int isPrime[5000001];
-vector<int>primes;
 
 // RECURSION -- PRINT ALL SUBSEQUENCES
 void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
@@ -151,33 +149,16 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 }
 
 
-// Sieve------------------------------
-
-void sieve()
+// Check Prime in O(sqrt(n))
+bool isPrime(int n)
 {
-    int maxN=5000000;
-    for(int i=1;i<=maxN;i++)
-        isPrime[i]=1;
-    isPrime[0]=0;
-    isPrime[1]=1;
-    for(int i=2;i*i<=maxN;i++)
-    {
-        if(isPrime[i])
-        {
-            for(int j=i*i;j<=maxN;j+=i)
-               isPrime[j]=0;
-        }
-    }
-
-    //store prime numbers;
-     for(int i=2;i<=maxN;i++)
-        if(isPrime[i])
-            primes.push_back(i);
-    
-
+    if(n==1)
+       return false;
+       for(int i=2;i*i<=n;i++)
+         if(n%i==0)
+            return false;
+    return true;
 }
-
-
 
 //Ends------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -212,7 +193,13 @@ void sieve()
 //Code:
 void solve()
 {
-  
+      int n;
+      cin>>n;
+      bool ans=isPrime(n);
+      if(ans)
+         cout<<"yes\n";
+         else
+           cout<<"no\n";
 }
 
 int main()
