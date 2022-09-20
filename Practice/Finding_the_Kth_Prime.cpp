@@ -8,8 +8,8 @@ typedef pair<int,int> pi;
 #define PB push_back
 #define MP make_pair
 #define REP(i,a,b) for (int i = a; i < b; i++)
-int isPrime[5000001];
-vector<int>primes;
+bool isPrime[90000001];
+vector<ll>primes;
 
 // RECURSION -- PRINT ALL SUBSEQUENCES
 void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
@@ -155,22 +155,22 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 
 void sieve()
 {
-    int maxN=5000000;
-    for(int i=1;i<=maxN;i++)
-        isPrime[i]=1;
-    isPrime[0]=0;
-    isPrime[1]=1;
-    for(int i=2;i*i<=maxN;i++)
+    ll maxN=90000000;
+    for(ll i=1;i<=maxN;i++)
+        isPrime[i]=true;
+    isPrime[0]=false;
+    isPrime[1]=false;
+    for(ll i=2;i*i<=maxN;i++)
     {
         if(isPrime[i])
         {
-            for(int j=i*i;j<=maxN;j+=i)
+            for(ll j=i*i;j<=maxN;j+=i)
                isPrime[j]=0;
         }
     }
 
     //store prime numbers;
-     for(int i=2;i<=maxN;i++)
+     for(ll i=2;i<=maxN;i++)
         if(isPrime[i])
             primes.push_back(i);
     
@@ -212,7 +212,10 @@ void sieve()
 //Code:
 void solve()
 {
-  
+   ll k;
+   cin>>k;
+//    sieve();
+   cout<<primes[k-1]<<"\n";
 }
 
 int main()
@@ -222,6 +225,7 @@ int main()
     cin.tie(0);
     int t;
     cin>>t;
+    sieve();
     while(t--)
     {
         solve();
