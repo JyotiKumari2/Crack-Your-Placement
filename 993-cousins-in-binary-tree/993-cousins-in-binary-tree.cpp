@@ -24,7 +24,7 @@ public:
         while(!q.empty())
         {
             int size = q.size();
-            // cout<<size<<endl;
+         
             
             bool flag = false;
             for(int i = 0; i<size ; i++)
@@ -34,8 +34,7 @@ public:
                 
                
                 q.pop();
-                
-               // cout<<i<<" "<<front->val<<endl;
+                 
                 if(front->left)
                     q.push(front->left);
                 if(front->right)
@@ -53,13 +52,13 @@ public:
                 {
                     if(front->val == x || front->val == y)
                     {
-                    //    cout<<"Here "<<endl;
+                   
                           return true;
                     }
                 }
                 if(front->val == x || front->val == y)
                 {
-                    // cout<<"Entered for "<<front->val<<endl;
+                     
                      flag = true;
                 }
                 
