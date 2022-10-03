@@ -212,28 +212,16 @@ void sieve()
 //Code:
 void solve()
 {
-  int n;
-  cin>>n;
-  vector<ll>v(n);
-  for(int i=0;i<n;i++)
-      cin>>v[i];
-  int ans=0;
-  bool check=true;
-  for(int i=n-2;i>=0;i--)
-  {
-       while(v[i+1]<=v[i] && v[i]>0 )
-       {
-        v[i]=(v[i]/2);
-        ans++;
-        }
-    
-    if(v[i]==v[i+1])
-    {
-        cout<<-1<<"\n";
-         return;
-    }
-  }
-  cout<<ans<<"\n";
+     int a,b,c;
+     cin>>a>>b>>c;
+     if((a+c)%(2*b)==0)
+         cout<<"YES\n";
+         else if((2*b-a)>0 && (2*b-a)%c==0)
+             cout<<"YES\n";
+             else if((2*b-c)>0 && (2*b-c)%a==0)
+                 cout<<"YES\n";
+                 else 
+                    cout<<"NO\n";
 }
 
 int main()
