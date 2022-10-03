@@ -212,28 +212,32 @@ void sieve()
 //Code:
 void solve()
 {
-  int n;
-  cin>>n;
-  vector<ll>v(n);
-  for(int i=0;i<n;i++)
-      cin>>v[i];
-  int ans=0;
-  bool check=true;
-  for(int i=n-2;i>=0;i--)
-  {
-       while(v[i+1]<=v[i] && v[i]>0 )
-       {
-        v[i]=(v[i]/2);
-        ans++;
+     int n;
+     cin>>n;
+     vector<int>boys(n);
+     vector<int>girls(n);
+     for(int i=0;i<n;i++)
+        {
+            cin>>boys[i];
+            
         }
-    
-    if(v[i]==v[i+1])
+    for(int i=0;i<n;i++)
+        cin>>girls[i];
+    sort(boys.begin(),boys.end(),greater<int>());
+    sort(girls.begin(),girls.end());
+
+
+    //debug
+    // for(int i=0;i<n;i++)
+    //     cout<<boys[i];
+    int maxS=0;
+    int sum=0;
+    for(int i=0;i<n;i++)
     {
-        cout<<-1<<"\n";
-         return;
+        sum=(boys[i]+girls[i]);
+        maxS=max(maxS,sum);
     }
-  }
-  cout<<ans<<"\n";
+    cout<<maxS<<"\n";
 }
 
 int main()
