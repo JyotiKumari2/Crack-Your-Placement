@@ -213,7 +213,11 @@ void sieve()
 void solve()
 {
   
- 
+   int n;
+	cin >> n;
+	int l = (n - 3) / 3;
+	int ans = l-1;
+	cout << ans << '\n';
 }
 
 int main()
