@@ -9,14 +9,14 @@ public:
 	void pushZerosToEnd(int arr[], int n) {
 	    // code here
 	 int counter=0;
-     for(int i=0;i<n;i++)
-     {
-        if(arr[i]!=0)
+    for(int i=0;i<n;i++)
         {
-            swap(arr[i],arr[counter]);
-               counter++;
+            if(arr[i]!=0)
+            {
+                swap(arr[i],arr[counter]);
+                counter++;
+            }
         }
-     }
 	  
 	}
 };
