@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
         
-        // Kadane's Algorithm
+       
         int n=nums.size();
         int sum=0;
         int max_sum=INT_MIN;
