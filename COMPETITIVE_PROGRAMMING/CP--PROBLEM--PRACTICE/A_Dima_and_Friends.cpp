@@ -207,48 +207,50 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+        cin>>v[i];
+    int s=0;
+    s=accumulate(v.begin(),v.end(),s);
+    // int R = s+5;
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
-   {
+    //debug
+    // cout<<s<<" "<<R;
+    int ans=0;
+    // for(int i=s+1;i<=R;i++)
+    // {
+    //     if(i%(n+1)==1)
+    //        ans++;
+    // }
 
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
-   }
+    int N = (n+1);
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+
+    for(int i=1;i<=5;i++)
+    {
+        if((s+i)%(n+1)==1)
+           ans++;
+
+        // if(N%2==0)
+        // {
+        //     if((s+i)%N==0)
+        //        ans++;
+        // }
+        // else{
+        //     if((s+i)%N==1)
+        //        ans++;
+        // }
+    }
+    cout<<5-ans<<"\n";
+ 
 }
 
 int main()

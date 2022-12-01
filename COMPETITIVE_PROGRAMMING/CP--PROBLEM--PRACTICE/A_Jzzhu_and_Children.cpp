@@ -207,48 +207,46 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  int n,m;
+  cin>>n>>m;
+  vector<int>v(n);
+for(int i=0;i<n;i++)
+     cin>>v[i];
+ for(int i=0;i<n;i++)
+ {
+    int r = v[i]%m;
+    if(r==0)
+        v[i]=v[i]/m;
+        else
+           v[i] = (v[i]/m)+1;
+    
+ }
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
-   {
 
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
-   }
+ //debug 
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+//  for(int i=0;i<n;i++)
+//      cout<<v[i]<<" ";
+
+ int mx=INT_MIN;
+ int idx =-1;
+ for(int i=0;i<n;i++)
+  {
+    if(v[i]>=mx)
+       {
+        mx = v[i];
+        idx = i+1;
+       }
+  }
+
+  cout<<idx<<"\n";
+
+ 
 }
 
 int main()
@@ -261,7 +259,7 @@ int main()
     // while(t--)
     // {
         solve();
-    // }
+    //}
     return 0;
 }
 

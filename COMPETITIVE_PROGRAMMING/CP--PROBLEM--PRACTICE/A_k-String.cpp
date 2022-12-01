@@ -207,48 +207,68 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+  ll n;
+  cin>>n;
+  string s;
+  cin>>s;
+  unordered_map<char,int>m;
+  for(int i=0;i<s.length();i++)
+  {
+    m[s[i]]++;
+  }
+//   int msize = m.size();
+//   if(msize!=n)
+//      {
+//         cout<<-1;
+//         return;
+//      }
+  bool flag =true;
+  for(auto i:m)
+  {
+    if(i.second%n!=0)
+    {
+        flag=false;
+        break;
+    }
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
+  }
+  if(flag==false)
    {
-
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
+    cout<<-1;
+    return;
    }
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+
+   string ans="";
+    for(auto i:m)
+    {
+        int t = i.second /n;
+        while(t--)
+        {
+            ans.push_back(i.first);
+
+        }
+    }
+
+    while(n--)
+    {
+        cout<<ans;
+    }
+
+//    while(n--)
+//    {
+//     for(auto i:m)
+//     {
+//         cout<<i.first;
+//     }
+//    }
+ 
 }
 
 int main()
