@@ -207,48 +207,63 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+  int n;
+  cin>>n;
+  vector<int>v(n);
+  for(int i=0;i<n;i++)
+      cin>>v[i];
+  int s=0;
+  s = accumulate(v.begin(),v.end(),s);
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
-   {
+  while(true)
+           {
+                 if(s%9==0)
+                  break;
 
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
-   }
+                s=s-5;
+              
+           }
+  int c0=0;
+  for(int i=0;i<n;i++)
+  {
+    if(v[i]==0)
+       c0++;
+  }
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+  if(c0==0)
+      {
+        cout<<-1<<"\n";
+        return;
+      }
+
+    if(c0!=0 && s<9)
+    {
+       cout<<0<<"\n";
+       return;
+    }
+    if(s>=9)
+    {
+        if(s%9==0)
+        {
+            for(int i=0;i<(s/5);i++)
+            cout<<5;
+        
+        int k=c0;
+        while(k--)
+           cout<<0;
+
+        }
+         
+
+        
+    }
+ 
 }
 
 int main()

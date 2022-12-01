@@ -207,48 +207,66 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+  ll n,m;
+  cin>>n>>m;
+  vector<ll>v(m);
+  for(int i=0;i<m;i++)
+      cin>>v[i];
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
-   {
+ sort(v.begin(),v.end(),greater<ll>());
+ vector<ll>x(m);
+ x=v;
 
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
-   }
+ sort(v.begin(),v.end());
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+
+
+  ll s=0;
+  s=accumulate(v.begin(),v.end(),s);
+  ll mini=0;
+  ll maxi=0;
+  ll t=n;
+  for(int i=0;i<m;i++)
+  {
+
+    // for minimum
+    int value = v[i];
+    // int t=n;
+    while(value!=0 && t!=0)
+    {
+        mini+=value;
+        value--;
+        t--;
+    }
+  }
+
+
+  while(n!=0)
+  {
+     for(int i=0;i<m;)
+     { 
+
+        if(n==0)
+           break;
+        maxi+=x[i];
+        x[i]=x[i]-1;
+        if(x[i]<x[i+1] && i!=m-1)
+          i++;
+        else if(i!=0 && x[i-1]>x[i])
+            i--;
+        n--;
+        
+     }
+  }
+
+  cout<<maxi<<" "<<mini;
+ 
 }
 
 int main()

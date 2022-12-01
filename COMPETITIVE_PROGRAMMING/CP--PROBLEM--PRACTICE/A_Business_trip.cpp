@@ -207,48 +207,45 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+  int n;
+  cin>>n;
+  vector<int>v(12);
+  for(int i=0;i<12;i++)
+  {
+       cin>>v[i];
+  }
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
+  sort(v.begin(),v.end(),greater<int>());
+  int c=0;
+  int s=0;
+  s = accumulate(v.begin(),v.end(),s);
+  int N=n;
+  if(n==0)
+  {
+    cout<<0;
+    return;
+  }
+  for(int i=0;i<12;i++)
+  {
+    if(n<=0)
+      break;
+    n-=v[i];
+    c++;
+  }
+  if(s<N || c==0)
    {
-
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
+    cout<<-1<<"\n";
+    return;
    }
+cout<<c<<"\n";
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+ 
 }
 
 int main()

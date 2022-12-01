@@ -207,48 +207,63 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+ ll n;
+ cin>>n; // size of array
+ vector<int>v(n);
+ for(int i=0;i<n;i++)
+     cin>>v[i];
+  ll m;
+  cin>>m;
+  vector<ll>q(m);
+  for(ll i=0;i<m;i++)
+       cin>>q[i];
+   ll va=0; // Vasya's Comparison
+   ll p=0; // Petya's Comparison
+   unordered_map<ll,pair<ll,ll>>m1;
+   for(ll i=0;i<n;i++)
+       m1[v[i]]={(i+1),(n-i)};
+    
+    for(ll i=0;i<m;i++)
+    {
+        va+=(m1[q[i]].first);
+        p+=(m1[q[i]].second);
+    }
+    
+//    for(int i=0;i<m;i++)
+//    {
+//         int s = q[i];
+//         for(int j=0;j<n;j++)
+//         {
+//             va++;
+//             if(s==v[j])
+//             {
+                 
+//                 break;
+//             }
+//         }
+//    }
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
-   {
 
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
-   }
+//    for(int i=0;i<m;i++)
+//    {
+//     int s= q[i];
+//     for(int j=n-1;j>=0;j--)
+//     {
+//         p++;
+//         if(s==v[j])
+//         {
+//            break;  
+//         }
+//     }
+//    }
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+   cout<<va<<" "<<p<<"\n";
 }
 
 int main()

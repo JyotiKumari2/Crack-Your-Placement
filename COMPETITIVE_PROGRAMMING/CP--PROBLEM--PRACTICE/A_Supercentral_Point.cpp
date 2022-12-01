@@ -207,48 +207,51 @@ void sieve()
 //Starts---------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-// bool cmp(pair<string, int>& a,
-//          pair<string, int>& b)
-// {
-//     return a.second < b.second;
-// }
 
 
 //Code:
 void solve()
 {
+  
+  int n;
+  cin>>n;
+  vector<pair<int,int>>v(n);
+  for(int i=0;i<n;i++)
+  {
+     
+       int x1,y1;
+       cin>>x1>>y1;
+       v[i]={x1,y1};
 
-   string s;
-   cin>>s;
-   int c0=0;
-   int c1=0;
-   bool flag = false;
-   for(int i=0;i<s.size();i++)
-   {
+  }
+  int c=0;
 
-        if(c1>=7 || c0>=7)
-         {
-            flag=true;
-            break;
-         }
-         if(s[i]=='0')
-         {
-            c0++;
-            c1=0;
-         }
-         if(s[i]=='1')
-         {
-            c1++;
-            c0=0;
-         }
-   }
+  for(int i=0;i<n;i++)
+{
 
-   if(flag==true)
-     cout<<"YES\n";
-     else if(flag==false && (c1>=7 || c0>=7))
-        cout<<"YES\n";
-          else
-             cout<<"NO\n";
+    int r=0,l=0,u=0,L=0;
+    for(int j=0;j<n;j++)
+    {
+
+
+          if(i!=j)
+          {
+            if(v[i].first == v[j].first && v[i].second <v[j].second)
+               u=1;
+            if(v[i].first == v[j].first  && v[i].second>v[j].second)
+               L=1;
+            if(v[i].first < v[j].first  && v[i].second == v[j].second)
+               r=1;
+            if(v[i].first > v[j].first  && v[i].second == v[j].second)
+                l=1;
+          }
+    }
+    if(r&&l&&u&&L)
+       c++;
+} 
+
+cout<<c<<"\n";
+   
 }
 
 int main()
