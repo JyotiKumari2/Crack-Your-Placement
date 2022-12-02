@@ -213,58 +213,45 @@ void sieve()
 void solve()
 {
   
-  ll n,m;
-  cin>>n>>m;
-  vector<ll>v(m);
-  for(int i=0;i<m;i++)
-      cin>>v[i];
-
- sort(v.begin(),v.end(),greater<ll>());
- vector<ll>x(m);
- x=v;
-
- sort(v.begin(),v.end());
-
-
-
-//   ll s=0;
-//   s=accumulate(v.begin(),v.end(),s);
-  ll mini=0;
-  ll maxi=0;
-  ll t=n;
-  for(int i=0;i<m;i++)
-  {
-
-    // for minimum
-    int value = v[i];
-    // int t=n;
-    while(value!=0 && t!=0)
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+        cin>>v[i];
+    map<int,vector<int>>m;
+    vector<pair<int,int>>ans;
+    for(int i=0;i<n;i++)
     {
-        mini+=value;
-        value--;
-        t--;
+        m[v[i]].push_back(i+1);
     }
-  }
 
-  multiset<int,greater<int>>Maxi;    // New Concept Learn of Multiset
-  for(int i=0;i<m;i++)
-  {
-    Maxi.insert(v[i]);
-  }
+    int x = m.size();
+    for(auto i:m)
+    {
+        int size = i.second.size();
+        int diff=0;
+        if(size>1)
+        diff = abs(i.second[0]-i.second[1]);
+         
+        bool flag = false;
+        for(int j=1;j<size-1;j++)
+        {
+            int d = abs(i.second[j]-i.second[j+1]);
+            if(diff!=d)
+              flag=true;
+        }
+        if(flag==true)
+        {
+            x--;
+        }
+        else{
+            ans.push_back({i.first,diff});
 
-  while(n--)
-  {
-    int x = *Maxi.begin();
-    maxi+=x;
-    Maxi.erase(Maxi.lower_bound(x));
-    --x;
-    if(x>0)
-      Maxi.insert(x);
-  }
-
-
- 
-  cout<<maxi<<" "<<mini;
+        }
+    }
+    cout<<x<<"\n";
+    for(auto i:ans)
+       cout<<i.first<<" "<<i.second<<"\n";
  
 }
 
