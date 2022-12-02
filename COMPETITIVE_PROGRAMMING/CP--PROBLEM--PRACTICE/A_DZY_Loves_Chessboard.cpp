@@ -213,58 +213,25 @@ void sieve()
 void solve()
 {
   
-  ll n,m;
-  cin>>n>>m;
-  vector<ll>v(m);
-  for(int i=0;i<m;i++)
-      cin>>v[i];
-
- sort(v.begin(),v.end(),greater<ll>());
- vector<ll>x(m);
- x=v;
-
- sort(v.begin(),v.end());
-
-
-
-//   ll s=0;
-//   s=accumulate(v.begin(),v.end(),s);
-  ll mini=0;
-  ll maxi=0;
-  ll t=n;
-  for(int i=0;i<m;i++)
-  {
-
-    // for minimum
-    int value = v[i];
-    // int t=n;
-    while(value!=0 && t!=0)
+    int n,m;
+    cin>>n>>m;
+    
+    for(int i=0;i<n;i++)
     {
-        mini+=value;
-        value--;
-        t--;
+        string s;
+        cin>>s;
+        for(int j=0;j<m;j++)
+        {
+            if(s[j]=='.')
+            {
+                 if((i+j)%2==0)
+                    s[j]='B';
+                else
+                    s[j]='W';
+            }
+        }
+        cout<<s<<"\n";
     }
-  }
-
-  multiset<int,greater<int>>Maxi;    // New Concept Learn of Multiset
-  for(int i=0;i<m;i++)
-  {
-    Maxi.insert(v[i]);
-  }
-
-  while(n--)
-  {
-    int x = *Maxi.begin();
-    maxi+=x;
-    Maxi.erase(Maxi.lower_bound(x));
-    --x;
-    if(x>0)
-      Maxi.insert(x);
-  }
-
-
- 
-  cout<<maxi<<" "<<mini;
  
 }
 
