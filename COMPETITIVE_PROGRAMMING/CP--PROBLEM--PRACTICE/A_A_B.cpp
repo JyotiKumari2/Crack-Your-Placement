@@ -213,6 +213,12 @@ void sieve()
 void solve()
 {
   
+    string s;
+    cin>>s;
+    int a = s[0]-'0';
+    int b = s[2]-'0';
+    cout<<a+b<<"\n";
+
  
 }
 
@@ -221,12 +227,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

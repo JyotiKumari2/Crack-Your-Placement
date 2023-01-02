@@ -212,6 +212,14 @@ void sieve()
 //Code:
 void solve()
 {
+
+
+    int n,k,x;
+    cin>>n>>k>>x;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+        cin>>v[i];
+    
   
  
 }

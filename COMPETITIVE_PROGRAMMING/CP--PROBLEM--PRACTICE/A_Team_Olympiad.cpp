@@ -109,6 +109,8 @@ void printSubsequence(int i , vector<int>&ds, vector<int>arr, int n)
 
 //-------------------D_Y_N_A_M_I_C  P_R_O_G_R_A_M_M_I_N_G ---------------------------------------
 // Starts-------------------------------------------
+
+//DP with bitmasking
 // Ends --------------------------------------------
 
 
@@ -212,7 +214,13 @@ void sieve()
 //Code:
 void solve()
 {
-  
+    
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+       cin>>v[i];
+     
  
 }
 

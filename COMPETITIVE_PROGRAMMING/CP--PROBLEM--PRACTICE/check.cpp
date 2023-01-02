@@ -210,10 +210,59 @@ void sieve()
 
 
 //Code:
+
+
+ 
+    bool wordPattern(string pattern, string s) {
+        bool check =true;
+        map<char,set<string>>m;
+        int n=s.size();
+        vector<string>v;
+        string ans="";
+        for(int i=0;i<n; )
+        {
+            if(s[i]==' ')
+               {
+                   v.push_back(ans);
+                   ans="";
+                   i++;
+               }
+            else{
+            ans+=s[i];
+            i++;
+            }
+            
+        }
+        v.push_back(ans);
+        int N=pattern.size();
+        for(int i=0;i<N;i++)
+        {
+            m[pattern[i]].insert(v[i]);
+
+        }
+        for(auto i:m)
+        {
+           if(i.second.size()>1)
+              {
+                check=false;
+                break;
+              }
+        }
+
+        return check;
+        
+    }
+ 
 void solve()
 {
+
+    string pattern = "abba";
+    string s = "dog cat cat dog";
+    bool ans =wordPattern(pattern,s);
+    cout<<ans;
+    
   
- 
+     
 }
 
 int main()

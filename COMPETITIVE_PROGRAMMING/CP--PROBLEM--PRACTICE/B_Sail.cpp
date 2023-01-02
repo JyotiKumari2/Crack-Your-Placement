@@ -213,17 +213,50 @@ void sieve()
 void solve()
 {
   
-  int t,x,y,a,b;
+  ll t,x,y,a,b;
   cin>>t>>x>>y>>a>>b;
   string s;
   cin>>s;
-  while(true)
+  ll i=0;
+  int c=0;
+  bool flag = false;
+  
+  while(i<t)
   {
-    if(a<=x )
-     {
 
-     }
+
+    
+   
+    if(a>x && s[i]=='E')
+        x++;
+    if(a<x && s[i]=='W')
+        x--;
+    if(b>y && s[i]=='N')
+       y++;
+    if(b<y && s[i]=='S')
+       y--;
+      
+
+     i++;
+     c++;
+
+     if(a==x && b==y)
+    {
+        flag = true;
+        break;
+    }
   }
+
+  if(flag==false)
+     cout<<"-1";
+     else 
+        cout<<c;
+
+// cout<< "x= "<<x;
+// cout<<"\na= "<<a;
+// cout<<"\ny= "<<y;
+// cout<<"\nb= "<<b;
+// cout<<"\nc= "<<c;
  
 }
 

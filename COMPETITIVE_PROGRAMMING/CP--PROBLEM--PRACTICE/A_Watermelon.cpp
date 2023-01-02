@@ -213,6 +213,17 @@ void sieve()
 void solve()
 {
   
+   int n;
+   cin>>n;
+   if(n==2)
+   {
+    cout<<"NO";
+    return;
+   }
+   if(n%2==0)
+     cout<<"YES\n";
+     else
+        cout<<"NO\n";
  
 }
 

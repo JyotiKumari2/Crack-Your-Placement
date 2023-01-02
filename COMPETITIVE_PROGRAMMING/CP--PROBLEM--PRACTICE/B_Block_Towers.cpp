@@ -213,7 +213,33 @@ void sieve()
 void solve()
 {
   
- 
+    ll n;
+    cin>>n;
+    vector<ll>v(n);
+    for(ll i=0;i<n;i++)
+    {
+          cin>>v[i];
+    }
+    ll t1= v[0];
+    sort(v.begin()+1,v.end());
+    for(ll i=1;i<n;i++)
+    {
+        ll diff = v[i]-t1;
+        if(diff<=0)
+           continue;
+        else if(diff==1)
+        {
+            t1+=1;
+        }
+        else if(diff>1){
+            if(diff%2==0)
+              t1=t1+(diff/2);
+              else
+               t1=t1+((diff/2) + 1);
+        }
+    }
+
+ cout<<t1<<"\n";
 }
 
 int main()
@@ -221,12 +247,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

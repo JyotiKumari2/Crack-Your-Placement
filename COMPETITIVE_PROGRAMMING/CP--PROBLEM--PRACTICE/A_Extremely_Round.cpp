@@ -210,9 +210,15 @@ void sieve()
 
 
 //Code:
+vector<int>num(1000000,0);
+for(int i=0;i<)
 void solve()
 {
-  
+    
+    int n;
+    cin>>n;
+    // this problem can be solved using precomputation
+
  
 }
 
@@ -221,12 +227,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

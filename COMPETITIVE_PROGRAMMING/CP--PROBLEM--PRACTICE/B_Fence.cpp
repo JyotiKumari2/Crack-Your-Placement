@@ -213,7 +213,31 @@ void sieve()
 void solve()
 {
   
- 
+
+   int n,k;
+   cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+        cin>>v[i];
+    vector<int>prefixSum(n);
+    prefixSum[0]=0;
+    for(int i=1;i<=n;i++)
+    {
+        prefixSum[i]=prefixSum[i-1]+v[i-1];
+    }
+    int mini =  INT_MAX;
+    int idx = -1;
+    for(int i=0;i<=n-k;i++)
+    {
+        int s = prefixSum[i+k]-prefixSum[i];
+        if(s<mini)
+        {
+            mini=s;
+            idx=i+1;
+        }
+    }
+
+    cout<<idx;
 }
 
 int main()
@@ -225,7 +249,7 @@ int main()
     // cin>>t;
     // while(t--)
     // {
-        solve();
+       solve();
     // }
     return 0;
 }

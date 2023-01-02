@@ -213,6 +213,38 @@ void sieve()
 void solve()
 {
   
+  string n;
+  cin>>n;
+  int l = n.size();
+  int first=0;
+  int idx = -1;
+  for(int i=0;i<l;i++)
+  {
+    if(n[i]=='0')
+    {
+         
+        idx=i;
+        break;
+    }
+    // else
+    //   cout<<n[i];
+
+  }
+if(idx==-1)
+ {
+    for(int i=0;i<l-1;i++)
+      cout<<n[i];
+ }
+ else{
+    for(int i=0;i<l;i++)
+    {
+        if(i==idx)
+           continue;
+        cout<<n[i];
+    }
+ }
+
+
  
 }
 

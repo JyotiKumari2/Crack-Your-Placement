@@ -210,10 +210,30 @@ void sieve()
 
 
 //Code:
+    int countPairs(int *arr,int n, int k) {
+        unordered_map<int,int> map;
+        int ans=0;
+        for(int i=0;i<n;i++){
+            if(map.find(arr[i]-k)!=map.end()) ans+=map[arr[i]-k];
+            if(map.find(arr[i]+k)!=map.end()) ans+=map[arr[i]+k];
+            map[arr[i]]=map[arr[i]]+2;
+        }
+        
+        return ans;
+    
+    }
 void solve()
 {
   
- 
+    int n;
+    cin>>n;
+    int *arr = new int[n];
+    for(int i=0;i<n;i++)
+       cin>>arr[i];
+    sort(arr,arr+n);
+    int diff = abs(arr[0]-arr[n-1]);
+    int ans = countPairs(arr,n,diff);
+    cout<<ans<<"\n";
 }
 
 int main()
@@ -221,12 +241,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

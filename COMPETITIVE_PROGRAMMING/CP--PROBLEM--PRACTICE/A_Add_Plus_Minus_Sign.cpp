@@ -213,6 +213,36 @@ void sieve()
 void solve()
 {
   
+
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int one=0;
+
+    for(int i=0;i<n;i++)
+    {
+        if(i==0 )
+        {
+            if(s[i]=='1')
+              one++; 
+        }
+           
+        else{
+            if(s[i]=='1')
+              {
+                one++;
+                if(one%2==0)
+                   cout<<'-';
+                   else
+                      cout<<'+';
+              }
+              else
+              cout<<'+';
+
+        }
+    }
+cout<<"\n";
  
 }
 
@@ -221,12 +251,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

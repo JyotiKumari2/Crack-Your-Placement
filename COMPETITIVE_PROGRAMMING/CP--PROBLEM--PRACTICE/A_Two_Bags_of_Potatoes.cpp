@@ -213,6 +213,27 @@ void sieve()
 void solve()
 {
   
+     ll y,k,n;
+     cin>>y>>k>>n;
+     ll i=1;
+     if((2+y)%k==0)
+        i=2;
+         
+    //  bool flag=false;
+     while(1)
+     {
+        if(i+y>n)
+           break;
+        if((i+y)<=n && (i+y)%k==0)
+        {
+            cout<<i<<" ";
+            // i+=k;
+        }
+         
+        i+=k;
+     }
+     if(i==1 || i==2)
+        cout<<-1<<"\n";
  
 }
 

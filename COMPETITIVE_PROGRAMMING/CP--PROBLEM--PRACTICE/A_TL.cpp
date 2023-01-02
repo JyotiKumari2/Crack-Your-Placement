@@ -213,10 +213,26 @@ void sieve()
 void solve()
 {
   
+  int n,m;
+  cin>>n>>m;
+  vector<int>v(n);
+  for(int i=0;i<n;i++)
+      cin>>v[i];
+vector<int>b(m);
+for(int i=0;i<m;i++)
+   cin>>b[i];
+
+sort(v.begin(),v.end());
+sort(b.begin(),b.end());
+int maxi = max(v[0],v[n-1]);
+if(maxi<b[0])
+  cout<<maxi;
+  else
+  cout<<-1;
  
 }
 
-int main()
+int main() 
 {
 
     ios::sync_with_stdio(0);

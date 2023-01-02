@@ -213,6 +213,17 @@ void sieve()
 void solve()
 {
   
+     int n;
+     cin>>n;
+     vector<int>v(n);
+     for(int i=0;i<n;i++)
+          cin>>v[i];
+    int s=0;
+    s=accumulate(v.begin(),v.end(),s);
+    if(s%n==0)
+       cout<<n<<"\n";
+       else
+         cout<<n-1;
  
 }
 
