@@ -208,10 +208,51 @@ void sieve()
 //Ends ----------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
+bool cmp(pair<int,int>p1, pair<int,int>p2)
+{
+    if(p1.second==p2.second)
+       return p1.first<p2.second;
+    return p1.second<p2.second;
+}
+
 
 //Code:
 void solve()
 {
+
+    int n;
+    cin>>n;
+    int idx=-1;
+    vector<pair<int,int>>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i].first>>v[i].second;
+    }
+    int mini = INT_MAX;
+    int maxi = INT_MIN;
+    // sort(v.begin(),v.end(),cmp);
+    for(int i=0;i<n;i++)
+    {
+        
+           if(v[i].first<mini)
+             mini=v[i].first;
+            if(v[i].second>maxi)
+             maxi=v[i].second;
+
+    }
+
+    for(int i=0;i<n;i++)
+    {
+        if(v[i].first==mini && v[i].second==maxi)
+           {
+            idx=i+1;
+            break;
+           }
+           
+    }
+
+    cout<<idx;
+
   
  
 }

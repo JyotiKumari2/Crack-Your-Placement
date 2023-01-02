@@ -213,7 +213,65 @@ void sieve()
 void solve()
 {
   
- 
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+       cin>>v[i];
+    int c = n/3;
+    int c1=0,c2=0,c3=0,c4=0,c6=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]==1)
+           c1++;
+           else if(v[i]==2)
+              c2++;
+              else if(v[i]==3)
+                 c3++;
+                 else if(v[i]==4)
+                    c4++;
+                    else if(v[i]==6)
+                        c6++;
+    }
+    bool flag = false;
+    if((c3!=0 && c6==0) ||(c2!=0 && (c4+c6)==0) || (c3>c6 && c3!=0))
+    {
+       cout<<"-1";
+       return;
+    }
+    if(c1==c && (c2+c3)==c && (c4+c6==c) )
+        {
+
+            while(c!=0 )
+            {
+                 if(c2!=0 && c4!=0)
+                 {
+                 cout<<1<<" "<<2<<" "<<4<<"\n";
+                 c2--;
+                 c4--;
+                 flag = true;
+                 }
+                 else if(c2!=0 && c6!=0)
+                 {
+                 cout<<1<<" "<<2<<" "<<6<<"\n";
+                 c2--;
+                 c6--;
+                 flag = true;
+                 }
+                 else if(c3!=0 && c6!=0)
+                 {
+                 cout<<1<<" "<<3<<" "<<6<<"\n";
+                 c3--;
+                 c6--;
+                 flag=true;
+                 }
+               c--;
+            }
+        }
+    else if(flag==false)
+       cout<<-1<<"\n";
+       else
+         cout<<"-1";
 }
 
 int main()

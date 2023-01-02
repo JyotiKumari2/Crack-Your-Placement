@@ -213,6 +213,37 @@ void sieve()
 void solve()
 {
   
+
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+
+    sort(v.begin(),v.end());
+    int c=0;
+    int cm=INT_MIN;
+    for(int i=0;i<n-1;i++)
+    {
+
+        
+       if(v[i]==v[i+1])
+          c++;
+        else
+           c=0;
+        if(c>cm)
+          cm=c;
+
+    }
+
+
+
+    if(cm>=(n+1)/2)
+       cout<<"NO";
+       else
+         cout<<"YES";
  
 }
 

@@ -214,6 +214,16 @@ void solve()
 {
   
  
+   int k,n;
+   cin>>k>>n;
+   int c=1;
+   vector<int>v(k);
+   int diff = n-k;
+   v[0]=1;
+   v[k-1]=n;
+   
+
+
 }
 
 int main()
@@ -221,12 +231,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

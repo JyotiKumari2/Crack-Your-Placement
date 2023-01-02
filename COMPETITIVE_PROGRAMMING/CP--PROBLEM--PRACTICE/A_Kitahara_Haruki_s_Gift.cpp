@@ -213,6 +213,47 @@ void sieve()
 void solve()
 {
   
+
+    int n;
+    cin>>n;
+    
+    vector<int>v(n);
+    int c100=0;
+    int c200=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+        if(v[i]==100)
+           c100++;
+           else
+            c200++;
+    }
+
+
+    if(n==1)
+    {
+        cout<<"NO";
+        return;
+    }
+
+    int s =0;
+    s=accumulate(v.begin(),v.end(),s);
+    // cout<<s;
+    if(s%(200)!=0)
+    {
+        cout<<"NO";
+        return;
+    }
+
+    if(c100==0 && c200%2!=0)
+    {
+        cout<<"NO\n";
+        return;
+    }
+    cout<<"YES";
+
+    
+    
  
 }
 

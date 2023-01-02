@@ -213,6 +213,37 @@ void sieve()
 void solve()
 {
   
+   int n=3; 
+   unordered_map<int,int>mx;
+   unordered_map<int,int>my;
+  while(n--)
+  {
+    int x,y;
+    cin>>x>>y;
+    mx[x]++;
+    my[y]++;
+
+  }
+  bool checkx=false;
+  bool checky=false;
+  for(auto i:mx)
+     {
+        if(i.second>=2)
+            checkx=true;
+     }
+    for(auto i:my)
+    {
+        if(i.second>=2)
+          checky=true;
+    }
+
+    if(checkx==true && checky==true)
+    {
+        cout<<"NO\n";
+    }
+    else 
+       cout<<"YES\n";
+
  
 }
 
@@ -221,12 +252,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

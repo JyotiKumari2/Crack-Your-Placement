@@ -213,6 +213,21 @@ void sieve()
 void solve()
 {
   
+   int n;
+   cin>>n;
+   if(n>=0 && n<=10)
+      cout<<0;
+      else if(n==11)
+          cout<<4;
+          else if(n>=12 && n<=19)
+              cout<<4;
+              else if(n==20)
+                 cout<<15;
+                else if(n==21)
+                   cout<<4; 
+                 else if(n>21 && n<=25)
+                    cout<<0;
+   
  
 }
 
@@ -225,7 +240,7 @@ int main()
     // cin>>t;
     // while(t--)
     // {
-        solve();
+         solve();
     // }
     return 0;
 }

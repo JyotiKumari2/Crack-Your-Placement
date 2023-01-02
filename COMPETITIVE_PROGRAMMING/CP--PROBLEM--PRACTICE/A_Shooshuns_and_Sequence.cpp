@@ -213,6 +213,33 @@ void sieve()
 void solve()
 {
   
+    ll n,k;
+    cin>>n>>k;
+    vector<int>v(n);
+    for(int i=0;i<n;i++)
+        cin>>v[i];
+    bool flag = true;
+    for(int i=(k-1);i<n-1;i++)
+    {
+        if(v[i]!=v[i+1])
+          {
+            flag=false;
+            break;
+          }
+    }
+
+    int idx=0;
+    int ele = v[n-1];
+    for(int i=0;i<n-1;i++)
+    {
+        if(v[i]!=ele)
+           idx=i+1;
+    }
+
+    if(flag==false)
+       cout<<"-1";
+       else
+          cout<<idx;
  
 }
 
@@ -220,7 +247,7 @@ int main()
 {
 
     ios::sync_with_stdio(0);
-    cin.tie(0);
+    // cin.tie(0);
     // int t;
     // cin>>t;
     // while(t--)

@@ -212,7 +212,13 @@ void sieve()
 //Code:
 void solve()
 {
-  
+    
+    int n;
+    cin>>n;
+    sieve();
+    // debug
+    for(int i=1;i<=n;i++)
+       cout<<primes[i-1]<<" ";
  
 }
 

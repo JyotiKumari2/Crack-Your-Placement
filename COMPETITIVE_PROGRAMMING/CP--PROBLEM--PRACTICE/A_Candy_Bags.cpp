@@ -210,9 +210,30 @@ void sieve()
 
 
 //Code:
+
+vector<int>p(10001);
+
 void solve()
 {
   
+   int n;
+   cin>>n;
+   for(int i=0;i<10001;i++)
+       p[i]=i;
+    int l=1;
+    int r=(n*n);
+    int x=n;
+    int L=n/2;
+    while(n--)
+    {
+        for(int i=0;i<L;i++)
+           cout<<l++<<" ";
+        for(int i=0;i<L;i++)
+            cout<<r--<<" ";
+        cout<<"\n";
+    }
+   
+
  
 }
 

@@ -213,6 +213,51 @@ void sieve()
 void solve()
 {
   
+  string s1,s2;
+  cin>>s1;
+  cin>>s2;
+   int pos1=-1;
+   int pos2=-1;
+   int pos=0;
+
+   if(s1==s2)
+   {
+    cout<<"YES";
+    return;
+   }
+   if(s1.size()!=s2.size())
+   {
+    cout<<"NO\n";
+    return;
+   }
+
+    bool flag=true;
+   for(int i=0;i<s1.size();i++)
+   {
+    if(s1[i]!=s2[i])
+      {
+        if(pos1==-1)
+           pos1=i;
+           else if(pos2==-1)
+              pos2=i;
+              else
+               flag=false;
+      }
+   }
+ swap(s1[pos1],s1[pos2]);
+//  cout<<s1;
+
+ if(flag==false)
+ {
+    cout<<"NO";
+    return;
+ }
+
+  if(s1==s2)
+    cout<<"YES\n";
+    else 
+       cout<<"NO\n";
+
  
 }
 

@@ -212,6 +212,46 @@ void sieve()
 //Code:
 void solve()
 {
+
+    vector<vector<int>>v(2,vector<int>(2));
+    for(int i=0;i<2;i++)
+    {
+        for(int j=0;j<2;j++)
+            cin>>v[i][j];
+    }
+    bool check = false;
+    int r=0;
+    while(true)
+    {
+
+        if(v[0][0]<v[0][1] && v[0][0]<v[1][0] && v[0][1]<v[1][1] && v[1][0]<v[1][1])
+        {   check=true;
+            break;
+        }
+        else
+        
+     if(v[1][0]<v[0][0] || v[0][0]>v[0][1])
+               {
+                int tmp = v[0][0];
+                v[0][0]=v[1][0];
+                v[1][0]=v[1][1];
+                v[1][1]=v[0][1];
+                v[0][1]=tmp;
+               }
+            //  else  if(v[1][0]>v[0][0] && v[1][0]>v[1][1])
+            // {
+            //     check=false;
+            //     break;
+            // }
+            r++;
+            if(r==4)
+              break;
+        
+    }
+    if(check)
+       cout<<"YES\n";
+       else
+         cout<<"NO\n";
   
  
 }
@@ -221,12 +261,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 

@@ -212,7 +212,33 @@ void sieve()
 //Code:
 void solve()
 {
-  
+  string s1,s2;
+  getline(cin,s1);
+  getline(cin,s2);
+  unordered_map<char,int>m2;
+  for(int i=0;i<s2.size();i++)
+  {
+    if(s2[i]==' ')
+       continue;
+       else
+         m2[s2[i]]++;
+  }
+
+  bool flag = true;
+  for(auto i:m2)
+  {
+         int c = count(s1.begin(),s1.end(),i.first);
+         if(c<i.second)
+         flag=false;
+  }
+  if(flag==false)
+    cout<<"NO\n";
+    else
+      cout<<"YES\n";
+
+
+
+
  
 }
 

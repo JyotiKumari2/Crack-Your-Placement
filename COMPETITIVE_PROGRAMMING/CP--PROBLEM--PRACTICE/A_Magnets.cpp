@@ -213,6 +213,25 @@ void sieve()
 void solve()
 {
   
+     int n;
+     cin>>n;
+     string S="";
+     while(n--)
+     {
+        string s;
+        cin>>s;
+        S+=s;
+
+
+     }
+     int c=0;
+     for(int i=0;i<S.size();i++)
+     {
+        if(S[i]==S[i+1])
+             c++;
+     }
+
+     cout<<c+1;
  
 }
 

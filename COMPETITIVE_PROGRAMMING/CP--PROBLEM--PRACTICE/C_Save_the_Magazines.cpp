@@ -212,6 +212,45 @@ void sieve()
 //Code:
 void solve()
 {
+
+     int n;
+     cin>>n;
+     string si;
+     cin>>si;
+     vector<int>v(n);
+     for(int i=0;i<n;i++)
+       cin>>v[i];
+    int mini=INT_MAX;
+    int s=0;
+    for(int i=n-1;i>=0;)
+    {
+        if(si[i]=='1')
+        {
+            mini=INT_MAX;
+            while(true)
+            {
+                if(si[i]=='1')
+                {
+                mini = min(mini,v[i]);
+                s=s+v[i];
+                i--;
+                }
+                else{
+                    mini = min(mini,v[i]);
+                    s=s+v[i];
+                    s=s-mini;
+                    i--;
+                     
+                    break;
+                }
+
+            }
+
+        }
+        else
+        i--;
+    }
+    cout<<s<<"\n";
   
  
 }
@@ -221,12 +260,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    // int t;
-    // cin>>t;
-    // while(t--)
-    // {
+    int t;
+    cin>>t;
+    while(t--)
+    {
         solve();
-    // }
+    }
     return 0;
 }
 
