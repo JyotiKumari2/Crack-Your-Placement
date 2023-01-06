@@ -210,49 +210,53 @@ void sieve()
 
 
 //Code:
-void solve()
+vector<vector<int>>adj(400010);
+vector<bool>visited(400010);
+int ans=0;
+
+void dfs(int v)
 {
-  
-
-    int n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++)
-       cin>>v[i];
-    int s=0;
-    s=accumulate(v.begin(),v.end(),s);
-    if(s%2==0)
+    visited[v]=true;
+    int cnt=0;
+    for(auto i:adj[v])
     {
-        cout<<0<<"\n";
-        return;
-    }
-    int mini=INT_MAX;
-    int c=0;
-    for(int i=0;i<n;i++)
-    {
-        c=0;
-        if(v[i]%2==0)
+        if(!visited[i])
         {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
+            dfs(i);
+            if(adj[i].size()==1)
+            {
+                cnt++;
+                adj[i].pop_back();
                 
-              }
-        }
-        else if(v[i]%2)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-              }
-
+            }
         }
     }
-    cout<<mini<<"\n";
+    ans=cnt;
+}
+void solve( )
+{
+
+    int n,k;
+    cin>>n>>k;
+    int idx=1;
+    for(int i=0;i<n-1;i++)
+    {
+        int x,y;
+        cin>>x>>y;
+        adj[x].push_back(y);
+        adj[y].push_back(x);
+
+    }
+    while(k--)
+    {
+       dfs(idx);
+    }
+
+     cout<<n-ans<<"\n";
+
+    
+    
+  
  
 }
 

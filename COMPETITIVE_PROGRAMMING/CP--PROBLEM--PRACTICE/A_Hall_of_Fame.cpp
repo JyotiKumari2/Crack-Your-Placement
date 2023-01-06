@@ -212,47 +212,45 @@ void sieve()
 //Code:
 void solve()
 {
-  
 
-    int n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++)
-       cin>>v[i];
-    int s=0;
-    s=accumulate(v.begin(),v.end(),s);
-    if(s%2==0)
-    {
-        cout<<0<<"\n";
+      int n;
+      cin>>n;
+      string s;
+      cin>>s;
+      bool check=true;
+      for(int i=0;i<n-1;i++)
+      {
+        if(s[i]!=s[i+1])
+        {
+            check=false;
+            break;
+        }
+      }
+       int idx=0;
+      if(check)
+      {
+        cout<<-1<<"\n";
         return;
-    }
-    int mini=INT_MAX;
-    int c=0;
-    for(int i=0;i<n;i++)
-    {
-        c=0;
-        if(v[i]%2==0)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-                
-              }
-        }
-        else if(v[i]%2)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-              }
+      }
+     else
+      if(n==2 )
+      {
+        if(s[0]=='L' && s[1]=='R')
+        cout<<1<<"\n";
+         else
+         cout<<0<<"\n";
+      }
+      else{
 
-        }
-    }
-    cout<<mini<<"\n";
+       idx = s.find("LR");
+       cout<<idx+1<<"\n";
+      }
+
+
+
+
+
+  
  
 }
 
