@@ -210,49 +210,71 @@ void sieve()
 
 
 //Code:
+
+
+vector<vector<int>>adj(100002);
+vector<bool>visited(100002);
+vector<int>ans;
+
+void dfs(int v)
+{
+    visited[v]=true;
+    int cnt1=0;
+    for(int u:adj[v])
+    {
+        if(!visited[u])
+        {
+            cnt1++;
+           dfs(u);
+        }
+    }
+    if(cnt1==0)
+       ans.push_back(v);
+}
+
 void solve()
 {
+ 
+   int n;
+   cin>>n;
+   int idx=1,cnt=0;
+   vector<int>deg(n+1);
+
+   for(int i=0;i<n-1;i++)
+   {
+    int x,y;
+    cin>>x>>y;
+    adj[x].push_back(y);
+    adj[y].push_back(x);
+    deg[x]++;
+    deg[y]++;
+   }
+
+   for(int i=1;i<=n;i++)
+   {
+    if(deg[i]>2)
+    {
+        idx=i;
+        cnt++;
+    }
+   }
+   if(cnt>1)
+   {
+    cout<<"No"<<"\n";
+    return;
+   }
+   else{
+    dfs(idx);
+    cout<<"Yes"<<"\n";
+    cout<<deg[idx]<<"\n";
+    for(int i=0;i<deg[idx];i++)
+    {
+        cout<<idx<<" "<<ans[i]<<"\n";
+    }
+
+   }
+
   
-
-    int n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++)
-       cin>>v[i];
-    int s=0;
-    s=accumulate(v.begin(),v.end(),s);
-    if(s%2==0)
-    {
-        cout<<0<<"\n";
-        return;
-    }
-    int mini=INT_MAX;
-    int c=0;
-    for(int i=0;i<n;i++)
-    {
-        c=0;
-        if(v[i]%2==0)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-                
-              }
-        }
-        else if(v[i]%2)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-              }
-
-        }
-    }
-    cout<<mini<<"\n";
  
 }
 
@@ -261,12 +283,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
         solve();
-    }
+    // }
     return 0;
 }
 

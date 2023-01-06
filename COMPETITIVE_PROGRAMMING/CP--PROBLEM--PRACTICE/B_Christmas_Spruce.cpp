@@ -210,49 +210,53 @@ void sieve()
 
 
 //Code:
+
+vector<vector<int>>adj(2001);
+vector<bool>visited(2001);
+vector<int>ans;
+int flag=1;
+void dfs(int v)
+{
+    visited[v]=true;
+    int cnt1=0,cnt2=0;
+    for(int u:adj[v])
+    {
+        if(!visited[u])
+        {
+            cnt1++;
+            dfs(u);
+            if(adj[u].size()==0)
+                cnt2++;
+               
+        }
+    }
+
+   if(cnt1!=0)
+   {
+    if(cnt2<3)
+       flag=0;
+   }
+
+}
 void solve()
 {
-  
 
     int n;
     cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++)
-       cin>>v[i];
-    int s=0;
-    s=accumulate(v.begin(),v.end(),s);
-    if(s%2==0)
+    int *arr=new int[n+1];
+    for(int i=2;i<=n;i++)
     {
-        cout<<0<<"\n";
-        return;
+        cin>>arr[i];
+        adj[arr[i]].push_back(i);
     }
-    int mini=INT_MAX;
-    int c=0;
-    for(int i=0;i<n;i++)
-    {
-        c=0;
-        if(v[i]%2==0)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-                
-              }
-        }
-        else if(v[i]%2)
-        {
-            while(v[i]%2!=0)
-              {
-                v[i]=v[i]/2;
-                c++;
-                mini = min(c,mini);
-              }
 
-        }
-    }
-    cout<<mini<<"\n";
+    dfs(1);
+    if(flag)
+       cout<<"Yes"<<"\n";
+       else
+         cout<<"No"<<"\n";
+    
+  
  
 }
 
@@ -261,12 +265,12 @@ int main()
 
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
         solve();
-    }
+    // }
     return 0;
 }
 
