@@ -183,19 +183,20 @@ void solve()
 {
       ll n;
       cin>>n;
-      ll count=0;
-      for(ll i=1;i<=n;i++)
-      {
-        for(ll j=1;j<=n;j++)
-        {
-            ll LCM = lcm(i,j);
-            ll GCD = __gcd(i,j);
-            if(LCM/GCD <= 3)
-               count++;
-        }
-      }
-      cout<<count<<"\n";
-      return;
+    //   ll count=0;
+    //   for(ll i=1;i<=n;i++)
+    //   {
+    //     for(ll j=1;j<=n;j++)
+    //     {
+    //         ll LCM = lcm(i,j);
+    //         ll GCD = __gcd(i,j);
+    //         if(LCM/GCD <= 3)
+    //            count++;
+    //     }
+    //   }
+    //   cout<<count<<"\n";
+    //   return;
+    cout<<n+(n/2+n/3)*2<<"\n";
 }
 
 int main()

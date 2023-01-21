@@ -209,24 +209,25 @@ void sieve()
 
 
 
- 
+//Code:
 void solve()
 {
-  
-     ll N;
-    cin >> N;
-    vector<ll> A(N);
-    cin >> A;
+    string s;
+    cin>>s;
+    int n=s.size();
+    int l=0,r=n-1;
+    string a = "";
+    a+=s[0];
+    string b = s.substr(l+1,r-1);
+    string c="";
+    c+=s[n-1];
+    if((a<=b && c<=b) || (a>=b && c>=b) )
+     cout<<a<<" "<<b<<" "<<c<<"\n";
+     else
+       cout<<":("<<"\n";
+       
+
  
-    ll mn = min(A);
-    ll mx = max(A);
-    ll mncnt = count(ALL(A), mn);
-    ll mxcnt = count(ALL(A), mx);
-    if (mn == mx) {
-        cout<<(N * (N - 1));
-    } else {
-        cout<<(mncnt * mxcnt * 2);
-    }
 }
 
 int main()

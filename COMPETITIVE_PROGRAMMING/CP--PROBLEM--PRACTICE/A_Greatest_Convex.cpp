@@ -218,6 +218,7 @@ void solve()
     //    cout<<-1<<"\n";
     //   else
        cout<<(k-1)<<"\n";
+       
 
  
 }
