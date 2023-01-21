@@ -209,25 +209,72 @@ void sieve()
 
 
 
- 
+//Code:
 void solve()
 {
-  
-     ll N;
-    cin >> N;
-    vector<ll> A(N);
-    cin >> A;
- 
-    ll mn = min(A);
-    ll mx = max(A);
-    ll mncnt = count(ALL(A), mn);
-    ll mxcnt = count(ALL(A), mx);
-    if (mn == mx) {
-        cout<<(N * (N - 1));
-    } else {
-        cout<<(mncnt * mxcnt * 2);
+   int n;
+   cin>>n;
+   int l=1, r = (n*n);
+    vector<vector<int>>v(n,vector<int>(n,0));
+//    int k=0;
+bool check=false;
+   for(int i=0;i<n;i++)
+   {
+    for(int j=0;j<n;j++)
+    {
+       if(check==false)
+       {
+        v[i][j]=l++;
+        check=true;
+       }
+       else
+       {
+        v[i][j]=r--;
+        check=false;
+       }
     }
+   }
+
+    if(n%2)
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cout<<v[i][j]<<" ";
+            }
+            cout<<"\n";
+        }
+    }
+    else{
+        for(int i=0;i<n;i++)
+        {
+            if(i%2==0)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    cout<<v[i][j]<<" ";
+                }
+                cout<<"\n";
+            }
+            else{
+                for(int k=n-1;k>=0;k--)
+                {
+                    cout<<v[i][k]<<" ";
+                }
+                cout<<"\n";
+            }
+        }
+    }
+
+    // cout<<"\n";
+
+    
 }
+       
+
+ 
+
 
 int main()
 {
