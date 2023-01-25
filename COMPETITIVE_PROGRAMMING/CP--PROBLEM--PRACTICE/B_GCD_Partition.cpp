@@ -6,6 +6,8 @@
 using namespace std;
 using namespace __gnu_pbds;
 
+#define ll long long int
+
 typedef tree<int,null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 // function : find_by_order(idx), order_of_key(element)
 //find_by_order(idx): find Kth element index access
@@ -14,7 +16,13 @@ typedef tree<int,null_type, less<int>, rb_tree_tag, tree_order_statistics_node_u
 void solve()
 {
 
-  
+   ll n;
+   cin>>n;
+   vector<ll>v(n);
+   for(ll i=0;i<n;i++)
+      cin>>v[i];
+    
+  ;
 }
 
 int main()
