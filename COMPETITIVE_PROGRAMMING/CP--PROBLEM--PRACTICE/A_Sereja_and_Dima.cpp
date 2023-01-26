@@ -26,6 +26,7 @@ void solve()
     int cnt=0;
     int s1=0;
     int s2=0;
+    int R=0;
     while(l<=r)
     {
         if(cnt==0)
@@ -41,6 +42,7 @@ void solve()
               r--;
              }
             cnt=1;
+            // cout<<R++<<" "<<s1<<"\n";
         }
         else{
 
@@ -55,6 +57,7 @@ void solve()
               r--;
              }
             cnt=0;
+            // cout<<R++<<" "<<s2<<"\n";
 
 
         }
@@ -68,8 +71,8 @@ void solve()
 int main()
 {
 
-  int t;
-  cin>>t;
+//   int t;
+//   cin>>t;
 //   while(t--)
 //   {
     solve();
