@@ -18,8 +18,19 @@ typedef tree<int,null_type, less<int>, rb_tree_tag, tree_order_statistics_node_u
 void solve()
 {
 
-   
+     string s;
+     cin>>s;
+     string pi = "3141592653589793238462643383279";
+     int c=0;
+     for(int i=0;i<s.size();i++)
+     {
+        if(s[i]!=pi[i])
+          break;
+          else
+           c++;
 
+     }
+     cout<<c<<"\n";
      
 }
 
